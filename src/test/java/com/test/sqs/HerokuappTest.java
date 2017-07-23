@@ -40,6 +40,7 @@ public class HerokuappTest extends TestNG{
 
 	@BeforeMethod
 	public void setUp() throws InterruptedException{
+		
 		driver.get(appURL);
 		Thread.sleep(2000);
 	}
@@ -52,66 +53,7 @@ public class HerokuappTest extends TestNG{
 	}
 
 
-	@Test
-	public void verify_First_Button_Click() throws InterruptedException {
-		
-		
-		Object canvas=null;
-		Object canvas1=null;
-		if (driver instanceof JavascriptExecutor) {
-			  canvas=((JavascriptExecutor) driver).executeScript("return document.getElementById('canvas').getContext('2d')");
-		}
-		
-	   driver.findElement(By.className("button")).click();
-	   Thread.sleep(2000);
-
-	   if (driver instanceof JavascriptExecutor) {
-			  canvas1=((JavascriptExecutor) driver).executeScript("return document.getElementById('canvas').getContext('2d')");
-		}
 	
-		assertNotEquals(canvas,canvas1);
-	}
-	
-	
-	@Test
-	public void verify_Second_Button_Click(){
-		
-		
-		Object canvas=null;
-		Object canvas1=null;
-		if (driver instanceof JavascriptExecutor) {
-			  canvas=((JavascriptExecutor) driver).executeScript("return document.getElementById('canvas').getContext('2d')");
-		}
-		driver.findElement(By.cssSelector(".button.alert")).click();
-		if (driver instanceof JavascriptExecutor) {
-			  canvas1=((JavascriptExecutor) driver).executeScript("return document.getElementById('canvas').getContext('2d')");
-		}
-		assertNotEquals(canvas,canvas1);
-	}
-	
-	@Test
-	public void verify_Thrid_Button_Click(){
-	
-		
-		Object canvas=null;
-		Object canvas1=null;
-		if (driver instanceof JavascriptExecutor) {
-			  canvas=((JavascriptExecutor) driver).executeScript("return document.getElementById('canvas').getContext('2d')");
-		}
-		driver.findElement(By.cssSelector(".button.success")).click();
-		if (driver instanceof JavascriptExecutor) {
-			  canvas1=((JavascriptExecutor) driver).executeScript("return document.getElementById('canvas').getContext('2d')");
-		}
-		assertNotEquals(canvas,canvas1);
-	}
-	
-	@Test
-	public void verify_Click_Element() throws InterruptedException{
-		
-		driver.findElement(By.xpath("html/body/div[2]/a/img")).click();
-		Thread.sleep(2000);
-		assertTrue(driver.getTitle().contains("GitHub"));
-	}
 	
 	@Test
 	public void verify_Click_linkTest() throws InterruptedException{
@@ -122,6 +64,7 @@ public class HerokuappTest extends TestNG{
 	
 		System.out.println(driver.getTitle());
 		assertTrue(driver.getTitle().contains("Elemental Selenium"));
+		
 	}
 	
 	@Test
@@ -152,31 +95,17 @@ public class HerokuappTest extends TestNG{
 		List<WebElement> rows= driver.findElements(By.xpath("html/body/div[2]/div/div/div/div/div[2]/table/tbody/tr"));
 		assertEquals(10, rows.size());
 	}
-	
-	@Test
-	public void verify_edit_click(){
-		driver.findElement(By.xpath("//a[@href='#edit']"))
-		      .click();
-	assertEquals(driver.getCurrentUrl(),"https://the-internet.herokuapp.com/challenging_dom#edit");
-		
-	}
-	
-	@Test
-	public void verify_Delete_click(){
-		driver.findElement(By.xpath("//a[@href='#delete']"))
-		      .click();
-	assertEquals(driver.getCurrentUrl(),"https://the-internet.herokuapp.com/challenging_dom#delete");
-		
-	}
+
 	
 	@Test
 	public void verify_heading(){
-		driver.findElement(By.xpath("//h3[text()='Challenging DOM']"));
+		WebElement element=driver.findElement(By.xpath("//h3[text()='Challenging DOM']"));
+		assertEquals("Challenging DOM",element.getText());
 	}
 	
 	
 	
-	//@AfterClass
+	@AfterClass
 	public void tearDown() {
 		driver.close();;
 	}
