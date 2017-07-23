@@ -1,24 +1,29 @@
 package com.test.sqs;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
+
 import org.openqa.selenium.By;
-import io.github.bonigarcia.wdm.FirefoxDriverManager;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.TestNG;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.FirefoxDriverManager;
+
+
+
+
+
+
 
 
 
@@ -98,6 +103,12 @@ public class HerokuappTest extends TestNG{
 		assertEquals("Challenging DOM",element.getText());
 	}
 	
+	@Test
+	public void verify_forkme_on_github(){
+		WebElement element =driver.findElement(By.xpath("html/body/div[2]/a/img"));
+		Actions builder=new Actions(driver);
+		builder.moveToElement(element).click().build().perform();
+	}
 	
 	
 	@AfterClass
