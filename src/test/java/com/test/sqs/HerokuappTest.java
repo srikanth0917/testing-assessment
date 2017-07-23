@@ -45,12 +45,7 @@ public class HerokuappTest extends TestNG{
 		Thread.sleep(2000);
 	}
 	
-	@Test
-	public void verify_Buttons(){
-		List<WebElement> list=driver.findElements(By.xpath("//a[contains(@class,'button')]"));
-		if(Optional.ofNullable(list)!=null)
-			assertEquals(3,list.size());
-	}
+	
 
 
 	
