@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="com.test.sqs.HerokuappTest">
+        <methods>
+          <include name="verify_Thrid_Button_Click"/>
+          <include name="verify_Second_Button_Click"/>
+          <include name="setUp"/>
+          <include name="verify_Delete_click"/>
+          <include name="verify_edit_click"/>
+          <include name="testSetUp"/>
+          <include name="verify_First_Button_Click"/>
+        </methods>
+      </class> <!-- com.test.sqs.HerokuappTest -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
