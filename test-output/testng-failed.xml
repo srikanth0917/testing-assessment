@@ -5,10 +5,9 @@
     <classes>
       <class name="com.test.sqs.HerokuappTest">
         <methods>
+          <include name="exceptionTest"/>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="verify_Delete_click"/>
-          <include name="verify_edit_click"/>
           <include name="testSetUp"/>
         </methods>
       </class> <!-- com.test.sqs.HerokuappTest -->
